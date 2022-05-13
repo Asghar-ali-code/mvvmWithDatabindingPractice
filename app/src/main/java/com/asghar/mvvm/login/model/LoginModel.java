@@ -1,4 +1,4 @@
-package com.asghar.mvvm.data.model;
+package com.asghar.mvvm.login.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

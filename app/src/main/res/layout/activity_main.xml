@@ -7,13 +7,15 @@
 
         <variable
             name="viewModelM"
-            type="com.asghar.mvvm.modelViewM.LoginViewModel" />
+            type="com.asghar.mvvm.login.viewModel.LoginViewModel" />
+
+        <variable
+            name="loginDataModel"
+            type="com.asghar.mvvm.login.model.LoginDataModel" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-
-
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -27,8 +29,8 @@
             android:textColor="@color/black"
            android:layout_margin="12dp"
             android:inputType="textEmailAddress"
-            android:padding="5dp"
-            android:text="@={viewModelM.email}"
+            android:padding="8dp"
+            android:text="@={loginDataModel.email}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -40,23 +42,35 @@
             android:layout_height="wrap_content"
            android:layout_margin="12dp"
             android:hint="password"
+
             android:elevation="4dp"
             android:background="@drawable/bg"
             android:textColor="@color/black"
             android:inputType="textEmailAddress"
-            android:padding="5dp"
-            android:text="@={viewModelM.password}"
+            android:padding="8dp"
+            android:text="@={loginDataModel.password}"
             app:layout_constraintTop_toBottomOf="@+id/email" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
-            android:onClick="@{viewModelM::btnlogin}"
+            android:onClick="@{()->viewModelM.btnLogin()}"
             android:text="login"
             android:elevation="4dp"
             android:background="@drawable/bg"
             app:layout_constraintTop_toBottomOf="@id/password" />
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="invisible"
+            android:elevation="10dp"
+            android:indeterminate="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

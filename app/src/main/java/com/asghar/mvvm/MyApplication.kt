@@ -1,18 +1,25 @@
 package com.asghar.mvvm
 
+
 import android.app.Application
+import android.content.Context
+import android.widget.Toast
 import dagger.hilt.android.HiltAndroidApp
+
 
 @HiltAndroidApp
 class MyApplication: Application() {
-    private var me: MyApplication? = null
 
+    companion object{
+        lateinit var  myAppContext: Context
+    }
     override fun onCreate() {
         super.onCreate()
-        me = this
+        myAppContext = baseContext
     }
 
-    fun getInstance(): MyApplication? {
-        return me
-    }
+
+
+
+
 }
