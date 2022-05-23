@@ -22,7 +22,6 @@ class UseCaseProvider {
         return LoginUseCase(
             repository,
             Dispatchers.IO
-
         )
     }
 }

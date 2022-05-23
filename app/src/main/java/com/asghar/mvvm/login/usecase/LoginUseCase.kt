@@ -19,7 +19,7 @@ class LoginUseCase constructor(
 ) : FlowUseCase<LoginDataModel, Resource<LoginModel?>>(dispatcher) {
     private var errorMessage: String = ""
 
-    @ExperimentalCoroutinesApi
+
     override fun execute(parameters: LoginDataModel): Flow<Resource<LoginModel?>> = flow {
         if (validateLoginData(parameters)) {
 

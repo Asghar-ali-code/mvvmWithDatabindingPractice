@@ -11,6 +11,7 @@ import javax.inject.Inject
 import androidx.lifecycle.asLiveData
 
 @HiltViewModel
+@ExperimentalCoroutinesApi
 class LoginViewModel @Inject constructor(
     private val loginLoginUseCase: LoginUseCase
 ) : ViewModel() {
