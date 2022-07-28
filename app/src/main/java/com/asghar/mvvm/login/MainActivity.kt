@@ -1,30 +1,41 @@
 package com.asghar.mvvm.login
 
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import com.asghar.mvvm.BuildConfig
 import com.asghar.mvvm.R
+import com.asghar.mvvm.databinding.ActivityMainBinding
+import com.asghar.mvvm.login.model.LoginDataModel
+import com.asghar.mvvm.login.viewModel.LoginViewModel
 import com.asghar.mvvm.utiltiy.Resource
 import com.asghar.mvvm.utiltiy.SnacksBar
-import com.asghar.mvvm.login.model.LoginDataModel
-import com.asghar.mvvm.databinding.ActivityMainBinding
-import com.asghar.mvvm.login.viewModel.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import java.text.SimpleDateFormat
+import java.util.*
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val TAG = "MainActivity"
+   val local= BuildConfig.URL
 
 
     private val viewModel by viewModels<LoginViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        var date = "Mar 10, 2016 6:30:00 PM"
+        var spf = SimpleDateFormat("MMM dd, yyyy hh:mm:ss aaa")
+        val newDate: Date = spf.parse(date)
+        spf = SimpleDateFormat("dd MMM yyyy")
+        date = spf.format(newDate)
+        println(date)
+
         initiateBinding()
         observeLoginNavigate()
 
@@ -39,6 +50,7 @@ class MainActivity : AppCompatActivity() {
             loginDataModel = this@MainActivity.viewModel.loginDataModel
 
         }
+
     }
 
 
